@@ -9,7 +9,7 @@ var currentInput = "";
 var memory = "0";
 var operator = 0;
 var degree = true;
-
+//displays the requested string
 function displayCurrentInput() {
     if (currentInput == "") {
         document.getElementById('screen').value = memory;
@@ -18,7 +18,7 @@ function displayCurrentInput() {
         document.getElementById('screen').value = currentInput;
     }
 }
-
+//add a digit to the number string
 function addDigit(dig) {
     if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
         currentInput = dig;
