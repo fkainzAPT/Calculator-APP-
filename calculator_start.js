@@ -191,7 +191,7 @@ function inverse() {
     memory = "0";
     displayCurrentInput();
 }
-
+// Calculate the sin
 function tigSin() {
     if (currentInput == "") {
         return;
@@ -209,7 +209,7 @@ function tigSin() {
     memory = "0";
     displayCurrentInput();
 }
-
+//calculate the cos
 function tigCos() {
     if (currentInput == "") {
         return;
@@ -227,7 +227,7 @@ function tigCos() {
     memory = "0";
     displayCurrentInput();
 }
-
+//change the trig degree btween radians and degrees
 function tigDegree() {
     if (degree == false) {
         degree = true;
