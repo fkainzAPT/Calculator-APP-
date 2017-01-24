@@ -9,7 +9,10 @@ var currentInput = "";
 var memory = "0";
 var operator = 0;
 var degree = true;
-//displays the requested string
+
+/**
+ * displays the requested string
+ */
 function displayCurrentInput() {
     if (currentInput == "") {
         document.getElementById('screen').value = memory;
@@ -18,7 +21,11 @@ function displayCurrentInput() {
         document.getElementById('screen').value = currentInput;
     }
 }
-//add a digit to the number string
+
+/**
+ * add a digit to the number string
+ * @param {number} dig digit to be added to number on screen
+ */
 function addDigit(dig) {
     if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
         currentInput = dig;
@@ -28,7 +35,10 @@ function addDigit(dig) {
     }
     displayCurrentInput();
 }
-// Adds a decimal to the current input
+
+/**
+ * Adds a decimal to the current input
+ */
 function addDecimal() {
     if (currentInput.length == 0) {
         //no leading ".", use "0."
@@ -42,19 +52,29 @@ function addDecimal() {
     }
     displayCurrentInput();
 }
-// Clears everything.
+
+/**
+ * Clears everything.
+ */
 function allClear() {
     currentInput = "";
     operator = 0; //clear operator
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-// Clear the current input back to 0
+
+/**
+ *  Clear the current input back to 0
+ */
 function cancel() {
     currentInput = "";
     displayCurrentInput();
 }
-// Stores the last operator pushed for multiply, divide, add, or subtract.
+
+/**
+ * Stores the last operator pushed for multiply, divide, add, or subtract.
+ * @param {string} op stores the specified operator
+ */
 function storeOperator(op) {
     if (currentInput == "") {
         return;
@@ -78,7 +98,10 @@ function storeOperator(op) {
     currentInput = "";
     displayCurrentInput();
 }
-// Calculate using operator, the memory and what is current
+
+/**
+ *  Calculate using operator, the memory and what is current
+ */
 function calculate() {
     if (operator == 1) {
         currentInput = eval(memory) * eval(currentInput);
@@ -99,7 +122,10 @@ function calculate() {
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-// Change the sign of the current input
+
+/**
+ * Changes the sign of the input
+ */
 function changeSign() {
     if (currentInput == "") {
         return;
@@ -107,7 +133,10 @@ function changeSign() {
     currentInput = currentInput * (-1);
     displayCurrentInput();
 }
-// Change the current input to a percentage
+
+/**
+ * Function calculates the percentage of the current input
+ */
 function percentage() {
     if (currentInput == "") {
         return;
@@ -120,7 +149,9 @@ function percentage() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the factorial of the current input
+/**
+ *  Calculate the factorial of the current input
+ */
 function factorial() {
     if (currentInput == "") {
         return;
@@ -145,7 +176,10 @@ function factorial() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the square of the current input
+
+/**
+ *  Calculate the square of the current input
+ */
 function square() {
     if (currentInput == "") {
         return;
@@ -158,7 +192,10 @@ function square() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the square root of the current input
+
+/**
+ * Function calculates the square root of a function
+ */
 function squareRoot() {
     if (currentInput == "") {
         return;
@@ -171,7 +208,10 @@ function squareRoot() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the inverse of the current input
+
+/**
+ * Function calculates the inverse
+ */
 function inverse() {
     if (currentInput == "") {
         return;
@@ -191,7 +231,10 @@ function inverse() {
     memory = "0";
     displayCurrentInput();
 }
-// Calculate the sin
+
+/**
+ * Function calculates the sine
+ */
 function tigSin() {
     if (currentInput == "") {
         return;
@@ -209,7 +252,10 @@ function tigSin() {
     memory = "0";
     displayCurrentInput();
 }
-//calculate the cos
+
+/**
+ * Function calculates the cosine
+ */
 function tigCos() {
     if (currentInput == "") {
         return;
@@ -227,7 +273,10 @@ function tigCos() {
     memory = "0";
     displayCurrentInput();
 }
-//change the trig degree btween radians and degrees
+
+/**
+ * This function changes the trig degree btween radians and degrees
+ */
 function tigDegree() {
     if (degree == false) {
         degree = true;
