@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+ <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+
+<head>
+    <title>Calcuator Starter App</title>
+    <script src="calculator_start.js"></script>
+</head>
+
+<style>
+
+    h1{
+        color: white;
+    }
+
+    body{
+        background-color: transparent;
+    }
+
+    html{
+        background-color: midnightblue;
+    }
+
+</style>
+
+    <body class="container">
+
+<center>
+<h1>Calculator App</h1>
+</center>
+     <form>
+
+    <div>
+        <div class="row">
+        <div class="col-lg-4"></div>
+        <div class="col-lg-4">
+            <input readonly type="text" style="text-align: right" id="screen" class="form-control">
+        </div>
+        <div class="col-lg-4"></div>
+        </div>
+    </div>
+
+<p></p>
+
+<p class="container" class="col-lg-4">
+<p class="container row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "col-lg-3">
+    <button type="button" onclick="allClear()" class="btn btn-primary btn-lg btn-block">AC</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="cancel()" class="btn btn-info btn-lg btn-block">C</button>
+    </div>
+    <div class = "col-lg-3">
+    <button type="button" onclick="changeSign()" class="btn btn-warning btn-lg btn-block">+/-</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="percentage()" class="btn btn-success btn-lg btn-block">%</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="tigSin()" class="btn btn-success btn-lg btn-block">sin</button>
+    </div>
+    </div>
+</p>
+
+
+<p class="container row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('7')" class="btn btn-default btn-lg btn-block">7</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('8')" class="btn btn-default btn-lg btn-block">8</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('9')" class="btn btn-default btn-lg btn-block">9</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="storeOperator('/')" class="btn btn-danger btn-lg btn-block">/</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="inverse()" class="btn btn-success btn-lg btn-block">1/X</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="tigCos()" class="btn btn-success btn-lg btn-block">cos</button>
+    </div>
+    </div>
+</p>
+
+<p class="container row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('4')" class="btn btn-default btn-lg btn-block">4</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('5')" class="btn btn-default btn-lg btn-block">5</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('6')" class="btn btn-default btn-lg btn-block">6</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="storeOperator('*')" class="btn btn-danger btn-lg btn-block">x</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="factorial()" class="btn btn-success btn-lg btn-block">X!</button>
+    </div>
+    <div class = "checkbox col-lg-2">
+    <label>
+    <input type="checkbox" onclick="tigDegree()">Deg
+    </label>
+    </div>
+    </div>
+</p>
+
+<p class="container row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('1')" class="btn btn-default btn-lg btn-block">1</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('2')" class="btn btn-default btn-lg btn-block">2</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('3')" class="btn btn-default btn-lg btn-block">3</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="storeOperator('-')" class="btn btn-danger btn-lg btn-block">-</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="squareRoot()" class="btn btn-success btn-lg btn-block">√x</button>
+    </div>
+    </div>
+</p>
+
+<p class="container row">
+    <div class = "col-lg-3"></div>
+    <div class = "col-lg-6">
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDigit('0')" class="btn btn-default btn-lg btn-block">0</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="addDecimal()" class="btn btn-default btn-lg btn-block">.</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="calculate()" class="btn btn-warning btn-lg btn-block">=</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="storeOperator('+')" class="btn btn-danger btn-lg btn-block">+</button>
+    </div>
+    <div class = "col-lg-2">
+    <button type="button" onclick="square()" class="btn btn-success btn-lg btn-block">x^2</button>
+    </div>
+    </div>
+</p>
+</p>
+
+
+         </body>
+     </form>
+
+</html>
