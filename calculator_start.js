@@ -5,58 +5,58 @@
  * 8. Super Challenge: Add ( and ) buttons that work!
  * 9. Super Duper Challenge: Add exponents (negatives too!)
  */
-var currentInput = "";
+var current_input = "";
 var memory = "0";
 var operator = 0;
 var degree = true;
 //displays the requested string
 function displayCurrentInput() {
-    if (currentInput == "") {
+    if (current_input == "") {
         document.getElementById('screen').value = memory;
     }
     else {
-        document.getElementById('screen').value = currentInput;
+        document.getElementById('screen').value = current_input;
     }
 }
 //add a digit to the number string
 function addDigit(dig) {
-    if ((eval(currentInput) == 0) && (currentInput.indexOf(".") == -1)) {
-        currentInput = dig;
+    if ((eval(current_input) == 0) && (current_input.indexOf(".") == -1)) {
+        current_input = dig;
     }
-    else if (currentInput.length < 30) {
-        currentInput = currentInput + dig;
+    else if (current_input.length < 30) {
+        current_input = current_input + dig;
     }
     displayCurrentInput();
 }
 // Adds a decimal to the current input
 function addDecimal() {
-    if (currentInput.length == 0) {
+    if (current_input.length == 0) {
         //no leading ".", use "0."
-        currentInput = "0.";
+        current_input = "0.";
     }
     else {
         // First make sure one doesn't exist
-        if (currentInput.indexOf(".") == -1) {
-            currentInput = currentInput + ".";
+        if (current_input.indexOf(".") == -1) {
+            current_input = current_input + ".";
         }
     }
     displayCurrentInput();
 }
 // Clears everything.
 function allClear() {
-    currentInput = "";
+    current_input = "";
     operator = 0; //clear operator
     memory = "0"; //clear memory
     displayCurrentInput();
 }
 // Clear the current input back to 0
 function cancel() {
-    currentInput = "";
+    current_input = "";
     displayCurrentInput();
 }
 // Stores the last operator pushed for multiply, divide, add, or subtract.
 function storeOperator(op) {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
@@ -74,26 +74,26 @@ function storeOperator(op) {
     if (op.indexOf("-") > -1) {
         operator = 4;
     }; // difference
-    memory = currentInput; //store value
+    memory = current_input; //store value
     currentInput = "";
     displayCurrentInput();
 }
 // Calculate using operator, the memory and what is current
 function calculate() {
     if (operator == 1) {
-        currentInput = eval(memory) * eval(currentInput);
+        current_input = eval(memory) * eval(current_input);
     };
-    if (operator == 2 && currentInput != "0") {
-        currentInput = eval(memory) / eval(currentInput);
+    if (operator == 2 && current_input != "0") {
+        current_input = eval(memory) / eval(current_input);
     };
-    if (operator == 2 && currentInput == "0") {
-        currentInput = "ERROR"
+    if (operator == 2 && current_input == "0") {
+        current_input = "ERROR"
     };
     if (operator == 3) {
-        currentInput = eval(memory) + eval(currentInput);
+        current_input = eval(memory) + eval(current_input);
     };
     if (operator == 4) {
-        currentInput = eval(memory) - eval(currentInput);
+        current_input = eval(memory) - eval(current_input);
     };
     operator = 0; //clear operator
     memory = "0"; //clear memory
@@ -101,34 +101,34 @@ function calculate() {
 }
 // Change the sign of the current input
 function changeSign() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
-    currentInput = currentInput * (-1);
+    current_input = current_input * (-1);
     displayCurrentInput();
 }
 // Change the current input to a percentage
 function percentage() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
-    currentInput = currentInput / 100;
+    current_input = current_input / 100;
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
 // Calculate the factorial of the current input
 function factorial() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
-    var fac = currentInput;
+    var fac = current_input;
     if (fac < 0 || (fac + "").indexOf(".") != -1) {
         fac = "ERROR";
     }
@@ -136,48 +136,48 @@ function factorial() {
         fac = 1;
     }
     else {
-        for (i = 1; i < currentInput; i++) {
+        for (i = 1; i < current_input; i++) {
             fac = fac * i;
         }
     }
-    currentInput = fac;
+    current_input = fac;
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
 // Calculate the square of the current input
 function square() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
-    currentInput = Math.pow(currentInput, 2);
+    current_input = Math.pow(current_input, 2);
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
 // Calculate the square root of the current input
 function squareRoot() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
-    currentInput = Math.sqrt(currentInput);
+    current_input = Math.sqrt(current_input);
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
 // Calculate the inverse of the current input
 function inverse() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
-    if (currentInput == 0) {
-        currentInput = "ERROR";
+    if (current_input == 0) {
+        current_input = "ERROR";
         operator = 0;
         memory = "0";
         displayCurrentInput();
@@ -186,24 +186,24 @@ function inverse() {
     if (operator > 0) {
         calculate();
     }
-    currentInput = 1 / currentInput;
+    current_input = 1 / current_input;
     operator = 0;
     memory = "0";
     displayCurrentInput();
 }
 // Calculate the sin
 function tigSin() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
     if (degree == true) {
-        currentInput = Math.sin(currentInput * (Math.PI / 180));
+        current_input = Math.sin(current_input * (Math.PI / 180));
     }
     else {
-        currentInput = Math.sin(currentInput);
+        current_input = Math.sin(current_input);
     }
     operator = 0;
     memory = "0";
@@ -211,17 +211,17 @@ function tigSin() {
 }
 //calculate the cos
 function tigCos() {
-    if (currentInput == "") {
+    if (current_input == "") {
         return;
     }
     if (operator > 0) {
         calculate();
     }
     if (degree == true) {
-        currentInput = Math.cos(currentInput * (Math.PI / 180));
+        current_input = Math.cos(current_input * (Math.PI / 180));
     }
     else {
-        currentInput = Math.cos(currentInput);
+        current_input = Math.cos(current_input);
     }
     operator = 0;
     memory = "0";
