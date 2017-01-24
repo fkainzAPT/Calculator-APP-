@@ -1,15 +1,18 @@
-/** TODO:
- * 2. Bootstrap it to make it pretty!
- * 6. Challenge: Add trig functions (in radian AND degree mode)
- * 7. Extra Challenge: Add mc, m+, m-, mr butons that work!
- * 8. Super Challenge: Add ( and ) buttons that work!
- * 9. Super Duper Challenge: Add exponents (negatives too!)
+/** The Calculator APP
+ *
+ * Original authors:
+ * @author Felix Kainz
+ * @editor Noah Hansbery
+ *
+ * Code cleaning crew:
+ * @author Felix Kainz
+ * @editor Will Tanaka
+ *
  */
 var current_input = "";
 var memory = "0";
 var operator = 0;
 var degree = true;
-
 /**
  * displays the requested string
  */
@@ -21,7 +24,6 @@ function displayCurrentInput() {
         document.getElementById('screen').value = current_input;
     }
 }
-
 /**
  * add a digit to the number string
  * @param {number} dig digit to be added to number on screen
@@ -35,7 +37,6 @@ function addDigit(dig) {
     }
     displayCurrentInput();
 }
-
 /**
  * Adds a decimal to the current input
  */
@@ -52,7 +53,6 @@ function addDecimal() {
     }
     displayCurrentInput();
 }
-
 /**
  * Clears everything.
  */
@@ -62,7 +62,6 @@ function allClear() {
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-
 /**
  *  Clear the current input back to 0
  */
@@ -70,7 +69,6 @@ function cancel() {
     current_input = "";
     displayCurrentInput();
 }
-
 /**
  * Stores the last operator pushed for multiply, divide, add, or subtract.
  * @param {string} op stores the specified operator
@@ -98,7 +96,6 @@ function storeOperator(op) {
     currentInput = "";
     displayCurrentInput();
 }
-
 /**
  *  Calculate using operator, the memory and what is current
  */
@@ -122,7 +119,6 @@ function calculate() {
     memory = "0"; //clear memory
     displayCurrentInput();
 }
-
 /**
  * Changes the sign of the input
  */
@@ -133,7 +129,6 @@ function changeSign() {
     current_input = current_input * (-1);
     displayCurrentInput();
 }
-
 /**
  * Function calculates the percentage of the current input
  */
@@ -176,7 +171,6 @@ function factorial() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  *  Calculate the square of the current input
  */
@@ -192,7 +186,6 @@ function square() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  * Function calculates the square root of a function
  */
@@ -208,7 +201,6 @@ function squareRoot() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  * Function calculates the inverse
  */
@@ -231,7 +223,6 @@ function inverse() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  * Function calculates the sine
  */
@@ -252,7 +243,6 @@ function tigSin() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  * Function calculates the cosine
  */
@@ -273,7 +263,6 @@ function tigCos() {
     memory = "0";
     displayCurrentInput();
 }
-
 /**
  * This function changes the trig degree btween radians and degrees
  */
